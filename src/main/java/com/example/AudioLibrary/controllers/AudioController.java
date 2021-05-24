@@ -24,7 +24,6 @@ public class AudioController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Melody>getAllMelodies() {
-        List<Melody> all = service.getAll();
         return service.getAll();
     }
 
