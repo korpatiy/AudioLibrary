@@ -22,6 +22,10 @@ public class AudioService {
     }
 
     public Melody save(Melody melody) {
+        return update(melody);
+    }
+
+    public Melody update(Melody melody) {
         return repository.save(melody);
     }
 }

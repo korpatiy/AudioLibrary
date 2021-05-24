@@ -1,19 +1,21 @@
 package com.example.AudioLibrary.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "genre")
+@Entity
+@Table(name = "genre")
 public class Genre {
 
     @Id
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

@@ -8,12 +8,13 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@Entity(name = "singer")
+@Entity
+@Table(name = "singer")
 public class Singer {
 
     @Id
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "first_name")
     private String firstName;

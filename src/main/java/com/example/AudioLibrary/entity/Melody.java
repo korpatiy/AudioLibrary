@@ -2,20 +2,24 @@ package com.example.AudioLibrary.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "melody")
+@Entity
+@Table(name = "melody")
 public class Melody {
 
     @Id
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String name;
@@ -24,13 +28,14 @@ public class Melody {
     @Column
     private String duration;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "composer_id", referencedColumnName = "id")
     private Composer composer;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Genre> genres;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Collection<Genre> genres;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Singer> singers;
 }
 

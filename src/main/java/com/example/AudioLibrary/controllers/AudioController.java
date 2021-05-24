@@ -1,5 +1,7 @@
 package com.example.AudioLibrary.controllers;
 
+import antlr.StringUtils;
+import com.example.AudioLibrary.dto.SimpleResp;
 import com.example.AudioLibrary.entity.Melody;
 import com.example.AudioLibrary.services.AudioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/melody")
+@RequestMapping("/melodies")
 public class AudioController {
 
     private final AudioService service;
@@ -20,21 +22,21 @@ public class AudioController {
     }
 
     @GetMapping("/all")
-    @ResponseBody
-    public List<Melody> getAllMelody() {
+    @ResponseStatus(HttpStatus.OK)
+    public List<Melody>getAllMelodies() {
+        List<Melody> all = service.getAll();
         return service.getAll();
     }
 
     @PostMapping
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public Melody addMelody(@RequestBody Melody melody) {
         return service.save(melody);
     }
 
     @PutMapping
-    @ResponseBody
-    public void updateMelody() {
-
+    @ResponseStatus(HttpStatus.OK)
+    public Melody updateMelody(@RequestBody Melody melody) {
+        return service.update(melody);
     }
 }
