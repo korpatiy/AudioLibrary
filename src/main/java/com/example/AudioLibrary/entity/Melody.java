@@ -1,16 +1,17 @@
 package com.example.AudioLibrary.entity;
 
 
-import com.fasterxml.jackson.annotation.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -30,14 +31,13 @@ public class Melody {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "composer_id", referencedColumnName = "id")
-    //@JsonManagedReference
     private Composer composer;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Genre> genres;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Singer> singers;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Singer> singers;
 }
 
 

@@ -1,12 +1,14 @@
 package com.example.AudioLibrary.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "singer")
@@ -20,4 +22,7 @@ public class Singer {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+
+    @ManyToMany(mappedBy = "singers")
+    private Set<Melody> melodies;
 }
