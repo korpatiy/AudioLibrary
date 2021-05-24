@@ -1,7 +1,7 @@
 package com.example.AudioLibrary.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +30,7 @@ public class Melody {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "composer_id", referencedColumnName = "id")
+    //@JsonManagedReference
     private Composer composer;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
