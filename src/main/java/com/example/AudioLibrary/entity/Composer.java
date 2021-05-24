@@ -1,5 +1,8 @@
 package com.example.AudioLibrary.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,6 +14,9 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "composer")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Composer {
 
     @Id
@@ -28,6 +34,5 @@ public class Composer {
      */
     @OneToMany
     @JoinColumn(name = "composer_id")
-    //@JsonBackReference
     private Collection<Melody> melodies;
 }
