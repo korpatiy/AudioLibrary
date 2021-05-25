@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -25,10 +26,16 @@ public class MelodyDTO {
     @JsonProperty("genres")
     private Collection<Genre> genres;
     @JsonProperty("singers")
-    private List<Singer> singers;
+    private Set<Singer> singers;
 
-    /*public static MelodyDTO fromModel(Melody melody)
-    {
-
-    }*/
+    public static MelodyDTO fromModel(Melody melody) {
+        MelodyDTO dto = new MelodyDTO();
+        dto.setId(melody.getId());
+        dto.setDuration(melody.getDuration());
+        dto.setName(melody.getName());
+        dto.setYear(melody.getYear());
+        dto.setGenres(melody.getGenres());
+        dto.setSingers(melody.getSingers());
+        return dto;
+    }
 }

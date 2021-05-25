@@ -14,9 +14,9 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "composer")
-@JsonIdentityInfo(
+/*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id")*/
 public class Composer {
 
     @Id
@@ -30,7 +30,8 @@ public class Composer {
 
     /**
      * Т.к у композитор может быть много мелодий, а в свою очередь у мелодии только один композитор,
-     * исключим создание новой таблицы и реализуем DTO для выдачи без зацикливаний.
+     * исключим создание новой таблицы и реализуем DTO для выдачи без зацикливаний - решение проблемы
+     * "бесконечного json'a". Можно и через @JsonIdentityInfo, но так не интересно было да и не красивый вывод
      */
     @OneToMany
     @JoinColumn(name = "composer_id")

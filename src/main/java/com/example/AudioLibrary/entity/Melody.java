@@ -18,9 +18,9 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "melody")
-@JsonIdentityInfo(
+/*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id")*/
 public class Melody {
 
     @Id
