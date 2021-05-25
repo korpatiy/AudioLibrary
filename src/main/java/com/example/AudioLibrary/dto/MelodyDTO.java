@@ -25,8 +25,6 @@ public class MelodyDTO {
     private String duration;
     @JsonProperty("genres")
     private Collection<Genre> genres;
-    @JsonProperty("singers")
-    private Set<Singer> singers;
 
     public static MelodyDTO fromModel(Melody melody) {
         MelodyDTO dto = new MelodyDTO();
@@ -35,7 +33,6 @@ public class MelodyDTO {
         dto.setName(melody.getName());
         dto.setYear(melody.getYear());
         dto.setGenres(melody.getGenres());
-        dto.setSingers(melody.getSingers());
         return dto;
     }
 }

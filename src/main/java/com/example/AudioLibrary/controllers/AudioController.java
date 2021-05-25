@@ -1,10 +1,6 @@
 package com.example.AudioLibrary.controllers;
 
-import antlr.StringUtils;
-import com.example.AudioLibrary.dto.ComposerWithMelodyDTO;
 import com.example.AudioLibrary.dto.MelodyWithComposerDTO;
-import com.example.AudioLibrary.dto.SimpleResp;
-import com.example.AudioLibrary.entity.Composer;
 import com.example.AudioLibrary.entity.Melody;
 import com.example.AudioLibrary.services.AudioService;
 import org.springframework.beans.factory.annotation.Autowired;

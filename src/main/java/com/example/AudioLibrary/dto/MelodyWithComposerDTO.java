@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -27,7 +28,7 @@ public class MelodyWithComposerDTO {
     @JsonProperty("genres")
     private Collection<Genre> genres;
     @JsonProperty("singers")
-    private Set<Singer> singers;
+    private Set<SingerDTO> singers;
 
     public static MelodyWithComposerDTO fromModel(Melody melody) {
         MelodyWithComposerDTO dto = new MelodyWithComposerDTO();
@@ -36,8 +37,12 @@ public class MelodyWithComposerDTO {
         dto.setName(melody.getName());
         dto.setYear(melody.getYear());
         dto.setGenres(melody.getGenres());
-        dto.setSingers(melody.getSingers());
         dto.setComposer(ComposerDTO.fromModel(melody.getComposer()));
+        Set<SingerDTO> singerDTOS = new HashSet<>();
+        for (Singer singer : melody.getSingers()) {
+            singerDTOS.add(SingerDTO.fromModel(singer));
+        }
+        dto.setSingers(singerDTOS);
         return dto;
     }
 }
