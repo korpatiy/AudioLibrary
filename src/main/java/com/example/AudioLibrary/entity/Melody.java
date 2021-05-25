@@ -1,10 +1,8 @@
 package com.example.AudioLibrary.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -12,9 +10,11 @@ import java.util.Set;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@DynamicUpdate
 @Table(name = "melody")
 /*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -32,11 +32,11 @@ public class Melody {
     @Column
     private String duration;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "composer_id", referencedColumnName = "id")
     private Composer composer;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Collection<Genre> genres;
 
     @ManyToMany(cascade = CascadeType.ALL)

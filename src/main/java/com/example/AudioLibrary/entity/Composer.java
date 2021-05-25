@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -13,6 +14,7 @@ import java.util.Collection;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@DynamicUpdate
 @Table(name = "composer")
 /*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -33,7 +35,7 @@ public class Composer {
      * исключим создание новой таблицы и реализуем DTO для выдачи без зацикливаний - решение проблемы
      * "бесконечного json'a". Можно и через @JsonIdentityInfo, но так не интересно было да и не красивый вывод
      */
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "composer_id")
     private Collection<Melody> melodies;
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 public class SingerDTO {
 
-    @JsonProperty("lid")
+    @JsonProperty("id")
     private Long id;
     @JsonProperty("first_name")
     private String firstName;

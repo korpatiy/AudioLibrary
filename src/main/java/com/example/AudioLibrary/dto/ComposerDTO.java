@@ -12,7 +12,7 @@ import java.util.Optional;
 @Setter
 public class ComposerDTO {
 
-    @JsonProperty("lid")
+    @JsonProperty("id")
     private Long id;
     @JsonProperty("first_name")
     private String firstName;
