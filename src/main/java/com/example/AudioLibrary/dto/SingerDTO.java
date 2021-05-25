@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Getter
@@ -21,9 +22,10 @@ public class SingerDTO {
 
     public static SingerDTO fromModel(Singer singer) {
         SingerDTO dto = new SingerDTO();
-        dto.setId(singer.getId());
-        dto.setFirstName(singer.getFirstName());
-        dto.setLastName(singer.getLastName());
+        Singer newSinger = Optional.ofNullable(singer).orElse(new Singer());
+        dto.setId(newSinger.getId());
+        dto.setFirstName(newSinger.getFirstName());
+        dto.setLastName(newSinger.getLastName());
         return dto;
     }
 }

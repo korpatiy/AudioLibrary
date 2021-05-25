@@ -1,9 +1,12 @@
 package com.example.AudioLibrary.dto;
 
 import com.example.AudioLibrary.entity.Composer;
+import com.example.AudioLibrary.repositories.ComposerRepository;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -18,9 +21,10 @@ public class ComposerDTO {
 
     public static ComposerDTO fromModel(Composer composer) {
         ComposerDTO dto = new ComposerDTO();
-        dto.setFirstName(composer.getFirstName());
-        dto.setLastName(composer.getLastName());
-        dto.setId(composer.getId());
+        Composer newComposer = Optional.ofNullable(composer).orElse(new Composer());
+        dto.setFirstName(newComposer.getFirstName());
+        dto.setLastName(newComposer.getLastName());
+        dto.setId(newComposer.getId());
         return dto;
     }
 }
