@@ -28,6 +28,6 @@ public class Singer {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToMany(mappedBy = "singers")
+    @ManyToMany(mappedBy = "singers", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Melody> melodies;
 }
