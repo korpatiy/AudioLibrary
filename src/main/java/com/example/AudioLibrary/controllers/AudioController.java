@@ -1,24 +1,15 @@
 package com.example.AudioLibrary.controllers;
 
 import com.example.AudioLibrary.dto.MelodyWithComposerDTO;
-import com.example.AudioLibrary.entity.Composer;
-import com.example.AudioLibrary.entity.Genre;
+import com.example.AudioLibrary.dto.SearchRequest;
 import com.example.AudioLibrary.entity.Melody;
-import com.example.AudioLibrary.entity.Singer;
 import com.example.AudioLibrary.services.AudioService;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/melodies")
@@ -56,7 +47,7 @@ public class AudioController {
     }
 
     /**
-     * Преобразует список мелодий к DTO {@link MelodyWithComposerDTO}
+     * Преобразует список мелодий к DTO {@link MelodyWithComposerDTO}, устраняя проблему "бесконечного json'a"
      *
      * @param melodyList список мелодий {@link Melody}
      * @return список {@link MelodyWithComposerDTO}
@@ -67,18 +58,5 @@ public class AudioController {
             melodies.add(MelodyWithComposerDTO.fromModel(melody));
         }
         return melodies;
-    }
-
-    /**
-     * Класс для работы с запросами поиска
-     */
-    @Data
-    public static class SearchRequest {
-
-        private String name;
-        private String year;
-        private Composer composer;
-        private Collection<Genre> genres;
-        private Set<Singer> singers;
     }
 }

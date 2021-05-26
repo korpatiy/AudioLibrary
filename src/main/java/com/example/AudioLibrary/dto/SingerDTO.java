@@ -15,9 +15,9 @@ public class SingerDTO {
 
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("first_name")
+    @JsonProperty("firstName")
     private String firstName;
-    @JsonProperty("last_name")
+    @JsonProperty("lastName")
     private String lastName;
 
     public static SingerDTO fromModel(Singer singer) {

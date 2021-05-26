@@ -1,6 +1,5 @@
 package com.example.AudioLibrary.controllers;
 
-import com.example.AudioLibrary.dto.ComposerDTO;
 import com.example.AudioLibrary.dto.ComposerWithMelodyDTO;
 import com.example.AudioLibrary.entity.Composer;
 import com.example.AudioLibrary.services.ComposerService;

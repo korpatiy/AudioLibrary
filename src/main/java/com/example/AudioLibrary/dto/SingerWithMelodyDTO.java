@@ -15,9 +15,9 @@ public class SingerWithMelodyDTO {
 
     @JsonProperty("lid")
     private Long id;
-    @JsonProperty("first_name")
+    @JsonProperty("firstName")
     private String firstName;
-    @JsonProperty("last_name")
+    @JsonProperty("lastName")
     private String lastName;
     @JsonProperty("melodies")
     private Set<MelodyDTO> melodies;

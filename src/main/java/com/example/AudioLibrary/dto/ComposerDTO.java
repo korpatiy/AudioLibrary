@@ -14,9 +14,9 @@ public class ComposerDTO {
 
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("first_name")
+    @JsonProperty("firstName")
     private String firstName;
-    @JsonProperty("last_name")
+    @JsonProperty("lastName")
     private String lastName;
 
     public static ComposerDTO fromModel(Composer composer) {
