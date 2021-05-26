@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.util.Optional;
 
+/**
+ * DTO для {@link Composer}
+ */
 @Getter
 @Setter
 public class ComposerDTO {

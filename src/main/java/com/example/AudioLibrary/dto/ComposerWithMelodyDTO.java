@@ -9,6 +9,9 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * DTO для {@link Composer} c оберткой листа мелодий
+ */
 @Getter
 @Setter
 public class ComposerWithMelodyDTO {

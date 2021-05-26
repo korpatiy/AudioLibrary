@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * DTO для {@link Melody}
+ */
 @Getter
 @Setter
 public class MelodyDTO {

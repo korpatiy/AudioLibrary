@@ -8,6 +8,9 @@ import lombok.Data;
 import java.util.Collection;
 import java.util.Set;
 
+/**
+ * Класс обертчик запроса поиска
+ */
 @Data
 public class SearchRequest {
 

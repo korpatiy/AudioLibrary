@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+/**
+ * service layer для работы с {@link Melody}
+ */
 @Service
 public class AudioService {
 

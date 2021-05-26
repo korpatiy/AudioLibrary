@@ -1,5 +1,6 @@
 package com.example.AudioLibrary.dto;
 
+import com.example.AudioLibrary.entity.Composer;
 import com.example.AudioLibrary.entity.Melody;
 import com.example.AudioLibrary.entity.Singer;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,6 +10,9 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * DTO для {@link Singer} c оберткой листа мелодий
+ */
 @Getter
 @Setter
 public class SingerWithMelodyDTO {

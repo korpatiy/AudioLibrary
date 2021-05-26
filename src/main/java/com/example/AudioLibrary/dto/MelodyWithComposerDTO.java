@@ -1,5 +1,6 @@
 package com.example.AudioLibrary.dto;
 
+import com.example.AudioLibrary.entity.Composer;
 import com.example.AudioLibrary.entity.Genre;
 import com.example.AudioLibrary.entity.Melody;
 import com.example.AudioLibrary.entity.Singer;
@@ -11,6 +12,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * DTO для {@link Melody} c оберткой певцов и композитора
+ */
 @Getter
 @Setter
 public class MelodyWithComposerDTO {
