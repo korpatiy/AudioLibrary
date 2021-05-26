@@ -14,7 +14,7 @@ import java.util.List;
  * service layer для работы с {@link Melody}
  */
 @Service
-public class AudioService {
+public class AudioService implements AudioLibraryService<Melody> {
 
     private final AudioRepository repository;
     private final CustomTextSearcherRepository searcherRepository;
