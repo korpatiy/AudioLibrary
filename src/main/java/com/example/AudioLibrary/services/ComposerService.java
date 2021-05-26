@@ -1,7 +1,6 @@
 package com.example.AudioLibrary.services;
 
 import com.example.AudioLibrary.entity.Composer;
-import com.example.AudioLibrary.entity.Singer;
 import com.example.AudioLibrary.repositories.ComposerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

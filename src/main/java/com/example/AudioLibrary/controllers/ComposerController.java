@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Контроллер API для работы с композиторами
+ */
 @RestController
 @RequestMapping("/composers")
 public class ComposerController {

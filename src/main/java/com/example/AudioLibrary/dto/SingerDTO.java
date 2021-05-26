@@ -1,13 +1,11 @@
 package com.example.AudioLibrary.dto;
 
-import com.example.AudioLibrary.entity.Melody;
 import com.example.AudioLibrary.entity.Singer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Optional;
-import java.util.Set;
 
 @Getter
 @Setter
